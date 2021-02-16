@@ -146,11 +146,6 @@ $space: 'Space Mono', monospace;
     background: $silver;
     color: $blue;
     cursor: pointer;
-
-    &:hover {
-        // outline: 1px solid $silver;
-        // outline-offset: 5px;
-    }
 }
 
 .selected {
