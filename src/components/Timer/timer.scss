@@ -48,10 +48,13 @@ $dark-blue: #161932;
     z-index: 50;
     @include center();
     flex-direction: column;
+    margin-top: 30px;
 }
 .timer-circle-container {
     transform: rotate(-90deg);
     position: absolute;
+    height: 375px;
+    width: 375px;
 }
 
 .timer-circle {
@@ -61,9 +64,36 @@ $dark-blue: #161932;
     stroke-width: 10px;
     fill: transparent;
     stroke-dasharray: 1100px;
+    r: 160px;
 }
 
 
-@media only screen and (max-width: 768px) {
-
+@media only screen and (max-width: 425px) {
+    #time, #status {
+        margin: 2.5px 0;
+    }
+    #time {
+        font-size: 80px;
+    }
+    #status {
+        font-size: 14px;
+    }
+    #timer-container {
+        height: 300px;
+        width: 300px;
+        margin: 40px auto;
+    }
+    #timer {
+        height: 270px;
+        width: 270px;
+    }
+    #timer-circle-container {
+        height: 270px;
+        width: 270px;
+    }
+    .timer-circle {
+        r: 122px;
+        stroke-width: 8px;
+    }
+    
 }

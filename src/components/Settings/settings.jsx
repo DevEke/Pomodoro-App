@@ -20,7 +20,7 @@ class Settings extends Component {
                             <div className="input-flex">
                                 <div className="label-input">
                                     <label className="body-2">pomodoro</label>
-                                    <input type='number' value="25" min='1' max='99'/>
+                                    <input type='number' defaultValue="25" min='1' max='99'/>
                                     <div className="custom-spinners">
                                         <img className="arrow" src={up} alt="up arrow"/>
                                         <img className="arrow" src={down} alt="down arrow"/>
@@ -28,7 +28,7 @@ class Settings extends Component {
                                 </div>
                                 <div className="label-input">
                                     <label className="body-2">short break</label>
-                                    <input type='number' value="5" min='1' max='99'/>
+                                    <input type='number' defaultValue="5" min='1' max='99'/>
                                     <div className="custom-spinners">
                                         <img className="arrow" src={up} alt="up arrow"/>
                                         <img className="arrow" src={down} alt="down arrow"/>
@@ -36,7 +36,7 @@ class Settings extends Component {
                                 </div>
                                 <div className="label-input">
                                     <label className="body-2">long break</label>
-                                    <input type='number' value="15" min='1' max='99'/>
+                                    <input type='number' defaultValue="15" min='1' max='99'/>
                                     <div className="custom-spinners">
                                         <img className="arrow" src={up} alt="up arrow"/>
                                         <img className="arrow" src={down} alt="down arrow"/>

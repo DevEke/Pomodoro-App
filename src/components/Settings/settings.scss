@@ -18,6 +18,11 @@ $dark-blue: #161932;
     align-items: center;
 }
 
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 @mixin buttons {
     border: none;
     background: none;
@@ -34,7 +39,7 @@ $robotos: 'Roboto Slab', serif;
 $space: 'Space Mono', monospace;
 
 #modal-container {
-    display: none;
+    // display: none;
     position: absolute;
     z-index: 999;
     height: 100%;
@@ -193,5 +198,50 @@ input::-webkit-inner-spin-button {
 
     &:hover {
         background: lighten($red, 10%);
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    #settings {
+        width: 327px;
+        border-radius: 15px;
+
+        .form-nav {
+            padding: 2.5px 20px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        .form-section {
+            padding: 15px 0;
+            text-align: center;
+            margin: 0 20px;
+
+            .input-flex {
+                @include flex-column();
+
+                .label-input {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 5px 0;
+
+                    label {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        .spread {
+            @include flex-column();
+        }
+    }
+    .outline {
+        margin: 0 8px;
+    }
+    h4 {
+        margin: 10px 0;
+        font-size: 12px;
     }
 }

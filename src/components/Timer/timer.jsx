@@ -6,11 +6,11 @@ class Timer extends Component {
         return (
             <div id="timer-container">
                 <div id="timer">
-                    <svg className="timer-circle-container" width="375px" height="375px">
-                        <circle className="timer-circle" cx='50%' cy='50%' r='160'/>
+                    <svg className="timer-circle-container" version="2">
+                        <circle className="timer-circle" cx='50%' cy='50%'/>
                     </svg>
                     <div id="time-display">
-                        <h1 id="time">00:00</h1>
+                        <h1 id="time">17:59</h1>
                         <h3 id="status">restart</h3>  
                     </div>
                 </div>
