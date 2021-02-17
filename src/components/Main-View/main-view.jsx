@@ -4,16 +4,11 @@ import Timer from '../Timer/timer';
 import Settings from '../Settings/settings';
 import settings from '../../img/icon-settings.svg';
 
-window.
-
 class MainView extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            pomo: null,
-            shortBreak: null,
-            longBreak: null,
             font: 'kumbh',
             color: '#f87070' 
         }
@@ -31,11 +26,6 @@ class MainView extends Component {
 
     applySettings = (e) => {
         e.preventDefault();
-        this.setState({
-            pomo: document.getElementById('pomo-counter').value,
-            shortBreak: document.getElementById('sb-counter').value,
-            longBreak: document.getElementById('lb-counter').value
-        });
         if ( document.getElementById('kumbh-font').classList.contains('selected')) {
             this.setState({
                 font: 'kumbh'
@@ -75,21 +65,21 @@ class MainView extends Component {
     }
 
 
-    startTimer = () => {
-        setInterval(() => {
-            const startMinutes = this.state.pomo;
-            let totalTime = startMinutes * 60;
-            let time = document.getElementById('time');
-            const minutes = Math.floor(totalTime / 60);
-            let seconds = totalTime % 60;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            time.innerHTML = `${minutes}:${seconds}`;
-            totalTime--;
-        }, 1000);
-    }
+    // startTimer = () => {
+    //     setInterval(() => {
+    //         let startMinutes = this.state.pomo;
+    //         let totalTime = startMinutes * 60;
+    //         let time = document.getElementById('time');
+    //         const minutes = Math.floor(totalTime / 60);
+    //         let seconds = totalTime % 60;
+    //         seconds = seconds < 10 ? '0' + seconds : seconds;
+    //         time.innerHTML = `${minutes}:${seconds}`;
+    //         totalTime--;
+    //     }, 1000);
+    // }
 
     render() {
-        const { font, color, pomo, shortBreak, longBreak } = this.state;
+        const { font, color } = this.state;
         let fontStyle = {
             fontFamily: 'Kumbh Sans'
         }
@@ -123,7 +113,7 @@ class MainView extends Component {
                     <button className="node">short break</button>
                     <button className="node">long break</button>
                 </div>
-                <Timer startTimer={this.startTimer} revert={this.changeHoverBack} hover={this.changeHover} color={color} pomo={pomo} shortBreak={shortBreak} longBreak={longBreak} />
+                <Timer revert={this.changeHoverBack} hover={this.changeHover} color={color} />
                 <button onClick={this.showSettings} id="open-settings">
                     <img src={settings} alt="settings-button"/>
                 </button>
