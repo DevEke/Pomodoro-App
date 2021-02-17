@@ -39,9 +39,9 @@ $dark-blue: #161932;
 #status {
     transition: color .3s;
     cursor: pointer;
-    &:hover {
-        color: $red;
-    }
+    // &:hover {
+    //     color: $red;
+    // }
 }
 
 #time-display {
@@ -58,7 +58,6 @@ $dark-blue: #161932;
 }
 
 .timer-circle {
-    stroke: $red;
     stroke-linejoin: round;
     stroke-linecap: round;
     stroke-width: 10px;

@@ -39,7 +39,7 @@ $robotos: 'Roboto Slab', serif;
 $space: 'Space Mono', monospace;
 
 #modal-container {
-    // display: none;
+    display: none;
     position: absolute;
     z-index: 999;
     height: 100%;
@@ -56,7 +56,7 @@ $space: 'Space Mono', monospace;
     width: 550px;
     background: white;
     border-radius: 30px;
-    font-family: $kumbh;
+    font-family: inherit;
     color: $dark-blue;
 
     .form-nav {
@@ -65,8 +65,11 @@ $space: 'Space Mono', monospace;
         border-bottom: 1px solid #e3e1e1;
     }
     .form-section {
-        padding: 30px 0;
+        padding: 20px 0;
         margin: 0 40px;
+        h4 {
+            margin: 20px 0;
+        }
 
         .input-flex {
             @include flex-spread();
@@ -128,6 +131,12 @@ $space: 'Space Mono', monospace;
 #close {
     @include buttons();
 }
+.outline > .selection > img {
+    transition: opacity .3s;
+}
+.hide {
+    opacity: 0;
+}
 
 .outline {
     border: 1px solid white;
@@ -150,6 +159,7 @@ $space: 'Space Mono', monospace;
     border-radius: 40px;
     background: $silver;
     color: $blue;
+    transition: background .3s;
     cursor: pointer;
 }
 

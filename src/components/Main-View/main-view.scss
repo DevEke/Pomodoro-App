@@ -44,7 +44,7 @@ $space: 'Space Mono', monospace;
 
 * {
     font-weight: 700;
-    font-family: $kumbh;
+    font-family: inherit;
 }
 
 h1 {
@@ -117,7 +117,7 @@ body {
 .node {
     height: 48px;
     width: 120px;
-    font-family: $kumbh;
+    font-family: inherit;
     font-size: 14px;
     font-weight: 700;
     border-radius: 48px;
