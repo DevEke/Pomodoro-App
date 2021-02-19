@@ -50,14 +50,14 @@ const Timer = (props) =>  {
 
 
         return (
-            <div id="timer-container">
-                <div id="timer">
-                    <svg className="timer-circle-container" version="2">
-                        <circle stroke={color} className="timer-circle" cx='50%' cy='50%'/>
+            <div className="timer__container">
+                <div className="timer">
+                    <svg className="timer-progress-bar__container" version="2">
+                        <circle stroke={color} className="timer__progress-bar" cx='50%' cy='50%'/>
                     </svg>
-                    <div id="time-display">
-                        <h1 id="time">{pomodoro > 9 ? pomodoro: '0'+ pomodoro}:{pomodoroSecond > 9? pomodoroSecond: '0'+pomodoroSecond}</h1>
-                        <h3 onMouseEnter={hover} onMouseLeave={revert} onClick={startTimer} id="status">Start</h3>  
+                    <div className="timer__time-display">
+                        <h1 className="timer__time">{pomodoro > 9 ? pomodoro: '0'+ pomodoro}:{pomodoroSecond > 9? pomodoroSecond: '0'+ pomodoroSecond}</h1>
+                        <h3 onMouseEnter={hover} onMouseLeave={revert} onClick={startTimer} className="timer__status">Start</h3>  
                     </div>
                 </div>
             </div>
