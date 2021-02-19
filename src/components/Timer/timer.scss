@@ -1,69 +1,59 @@
-//COLORS
-$red: #F87070;
-$cyan: #70F3F8;
-$purple: #D881F8;
-$grey: #D7E0FF;
-$blue: #1e213f;
-$silver: #EFF1FA;
-$dark-blue: #161932;
+@import '../../library.scss';
 
-@mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#timer-container {
+.timer__container {
     height: 410px;
     width: 410px;
     border-radius: 50%;
-    margin: 60px auto;
+    margin: 45px auto 63px;
     @include center();
     background-image: linear-gradient(-45deg, #272C5A, #121530);
     box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
 }
 
-#timer {
+.timer {
     @include center();
+    position: relative;
     flex-direction: column;
-    height: 360px;
-    width: 360px;
+    height: 366px;
+    width: 366px;
     background: $dark-blue;
     border-radius: 50%;
 }
 
-#time, #status {
-    margin: 5px 0;
+.timer__time {
+    @include h1;
+    margin: 20px auto;
 }
 
-#status {
+.timer__status {
     transition: color .3s;
+    @include h3;
+    margin: 0;
     cursor: pointer;
     // &:hover {
     //     color: $red;
     // }
 }
 
-#time-display {
+.timer__time-display {
     z-index: 50;
     @include center();
     flex-direction: column;
-    margin-top: 30px;
 }
-.timer-circle-container {
+.timer-progress-bar__container {
     transform: rotate(-90deg);
     position: absolute;
-    height: 375px;
-    width: 375px;
+    height: 340px;
+    width: 340px;
 }
 
-.timer-circle {
+.timer__progress-bar {
     stroke-linejoin: round;
     stroke-linecap: round;
-    stroke-width: 10px;
+    stroke-width: 12px;
     fill: transparent;
     stroke-dasharray: 1100px;
-    r: 160px;
+    r: 165px;
 }
 
 
@@ -71,13 +61,13 @@ $dark-blue: #161932;
     #time, #status {
         margin: 2.5px 0;
     }
-    #time {
+    #timer__time-display {
         font-size: 80px;
     }
-    #status {
+    #timer__status {
         font-size: 14px;
     }
-    #timer-container {
+    #timer__container {
         height: 300px;
         width: 300px;
         margin: 40px auto;
@@ -86,11 +76,11 @@ $dark-blue: #161932;
         height: 270px;
         width: 270px;
     }
-    #timer-circle-container {
+    #timer-progress-bar__container {
         height: 270px;
         width: 270px;
     }
-    .timer-circle {
+    .timer__progress-bar {
         r: 122px;
         stroke-width: 8px;
     }

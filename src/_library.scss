@@ -1,0 +1,121 @@
+// ========================
+// COLORS
+// ========================
+
+$red: #F87070;
+$cyan: #70F3F8;
+$purple: #D881F8;
+$grey: #D7E0FF;
+$blue: #1e213f;
+$silver: #EFF1FA;
+$dark-blue: #161932;
+
+.red {
+    background: $red;
+}
+
+.cyan {
+    background: $cyan;
+}
+
+.purple {
+    background: $purple;
+}
+
+// ========================
+// FONTS & HEADINGS
+// ========================
+
+$kumbh: 'Kumbh Sans', sans-serif;
+$robotos: 'Roboto Slab', serif;
+$space: 'Space Mono', monospace;
+
+@mixin kumbh {
+    font-family: $kumbh;
+}
+
+@mixin robotos {
+    font-family: $kumbh;
+}
+
+@mixin kumbh {
+    font-family: $kumbh;
+}
+
+@mixin h1 {
+    font-size: 100px;
+    line-height: 100px;
+    letter-spacing: -5px;
+    font-weight: 700;
+}
+
+@mixin h2 {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+}
+
+@mixin h3 {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 15px;
+    text-indent: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@mixin h4 {
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 5px;
+    text-indent: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+@mixin body-large {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+@mixin body-small {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+}
+
+// ========================
+// BUTTONS
+// ========================
+
+@mixin buttons {
+    border: none;
+    background: none;
+    opacity: .5;
+    transition: opacity .3s;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+// ========================
+// LAYOUTS
+// ========================
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-spread {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

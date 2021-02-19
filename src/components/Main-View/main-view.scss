@@ -1,32 +1,4 @@
-//COLORS
-$red: #F87070;
-$cyan: #70F3F8;
-$purple: #D881F8;
-$grey: #D7E0FF;
-$blue: #1e213f;
-$silver: #EFF1FA;
-$dark-blue: #161932;
-
-@mixin buttons {
-    border: none;
-    background: none;
-    opacity: .5;
-    transition: opacity .3s;
-    &:hover {
-        opacity: 1;
-    }
-}
-.red {
-    background: $red;
-}
-
-.cyan {
-    background: $cyan;
-}
-
-.purple {
-    background: $purple;
-}
+@import '../../library.scss';
 
 button {
     cursor: pointer;
@@ -35,54 +7,6 @@ button {
     }
 }
 
-//FONTS
-$kumbh: 'Kumbh Sans', sans-serif;
-$robotos: 'Roboto Slab', serif;
-$space: 'Space Mono', monospace;
-
-//HEADINGS AND PARAGRAPHS
-
-* {
-    font-weight: 700;
-    font-family: inherit;
-}
-
-h1 {
-    font-size: 100px;
-    // line-height: 120px;
-    letter-spacing: -5px;
-}
-
-h2 {
-    font-size: 28px;
-    line-height: 34px;
-}
-
-h3 {
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 15px;
-    text-indent: 15px;
-    text-transform: uppercase;
-}
-
-h4 {
-    font-size: 13px;
-    line-height: 16px;
-    letter-spacing: 5px;
-    text-indent: 5px;
-    text-transform: uppercase;
-}
-
-.body-1 {
-    font-size: 14px;
-    line-height: 18px;
-}
-
-.body-2 {
-    font-size: 12px;
-    line-height: 14px;
-}
 
 body {
     height: 100%;
@@ -91,7 +15,7 @@ body {
     color: $grey;
 }
 
-.container {
+.main-view__container {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -99,13 +23,13 @@ body {
     align-items: center; 
 }
 
-#title {
+.main-view__title {
     font-size: 32px;
-    margin: 60px auto;
+    margin: 48px auto 55px;
 }
 
-#menu {
-    padding: 5px;
+.main-view__menu {
+    padding: 8px;
     background: $dark-blue;
     border-radius: 60px;
     display: flex;
@@ -114,14 +38,14 @@ body {
     font-weight: 700;
     z-index: 100;
 }
-.node {
+.main-view-menu__node {
     height: 48px;
     width: 120px;
     font-family: inherit;
     font-size: 14px;
     font-weight: 700;
     border-radius: 48px;
-    margin: 5px;
+    margin: 0;
     color: $grey;
     @include buttons();
 }
@@ -136,28 +60,13 @@ body {
     }
 }
 
-#open-settings {
-    height: 40px;
-    width: 40px;
+#main-view__settings-button {
+    height: 28px;
+    width: 28px;
     border-radius: 40px;
+    margin-bottom: 56px;
     @include buttons();
-}
-
-@media only screen and (max-width: 768px) {
-    #title {
-        margin: 50px auto;
-    }
-}
-
-@media only screen and (max-width: 425px) {
-    #title {
-        margin: 30px auto 50px;
-        font-size: 24px;
-    }
-
-    .node {
-        width: 105px;
-        margin: 5px;
-        font-size: 12px;
-    }  
+    background-image: url('../../img/icon-settings.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }

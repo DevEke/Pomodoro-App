@@ -10,22 +10,28 @@ class MainView extends Component {
 
         this.state = {
             font: 'kumbh',
-            color: '#f87070' 
+            color: '#f87070' ,
+            pomodoro: 25,
+            shortBreak: 5,
+            longBreak:15, 
         }
 
         
     }
     
+    //This is just changing Color as per state
     changeHover = (e) => {
         e.target.style.color = this.state.color;
     }
-
+   //This is just changing Color back to orignal
     changeHoverBack = (e) => {
         e.target.style.color = '#EFF1FA'
     }
 
     applySettings = (e) => {
         e.preventDefault();
+
+        //Setting up selected font
         if ( document.getElementById('kumbh-font').classList.contains('selected')) {
             this.setState({
                 font: 'kumbh'
@@ -39,6 +45,7 @@ class MainView extends Component {
                 font: 'mono'
             })
         };
+           //Setting up selected  color
         if ( !document.getElementById('redcheck').classList.contains('hide')) {
             this.setState({
                 color: '#f87070'
@@ -52,31 +59,19 @@ class MainView extends Component {
                 color: '#d881f8'
             })
         }
-        document.getElementById('modal-container').style.display = 'none';
+        document.querySelector('.settings__modal-container').style.display = 'none';
     }
 
+    //This is just to open model
     showSettings = () => {
-        document.getElementById('modal-container').style.display = 'block';
+        document.querySelector('.settings__modal-container').style.display = 'block';
     }
-
+   //This is just to close model
     closeSettings = (e) => {
         e.preventDefault();
-        document.getElementById('modal-container').style.display = 'none';
+        document.querySelector('.settings__modal-container').style.display = 'none';
     }
 
-
-    // startTimer = () => {
-    //     setInterval(() => {
-    //         let startMinutes = this.state.pomo;
-    //         let totalTime = startMinutes * 60;
-    //         let time = document.getElementById('time');
-    //         const minutes = Math.floor(totalTime / 60);
-    //         let seconds = totalTime % 60;
-    //         seconds = seconds < 10 ? '0' + seconds : seconds;
-    //         time.innerHTML = `${minutes}:${seconds}`;
-    //         totalTime--;
-    //     }, 1000);
-    // }
 
     render() {
         const { font, color } = this.state;
@@ -106,21 +101,32 @@ class MainView extends Component {
         }
 
         return (
-            <div style={fontStyle} className="container">
-                <h2 id="title">pomodoro</h2>
-                <div id="menu">
-                    <button style={mainColor} className="node active">pomodoro</button>
-                    <button className="node">short break</button>
-                    <button className="node">long break</button>
+            <div style={fontStyle} className="main-view__container">
+                <h2 className="main-view__title">pomodoro</h2>
+                <div className="main-view__menu">
+                    <button style={mainColor} className="main-view-menu__node active">pomodoro</button>
+                    <button className="main-view-menu__node">short break</button>
+                    <button className="main-view-menu__node">long break</button>
                 </div>
-                <Timer revert={this.changeHoverBack} hover={this.changeHover} color={color} />
-                <button onClick={this.showSettings} id="open-settings">
-                    <img src={settings} alt="settings-button"/>
-                </button>
+                <Timer revert={this.changeHoverBack} hover={this.changeHover}  pomodoro={this.state.pomodoro} 
+                color={color} />
+                <button onClick={this.showSettings} id="main-view__settings-button"/>
                 <Settings 
                     applySettings={this.applySettings} 
                     closeSettings={this.closeSettings}
                     color={color} 
+                    pomodoro={this.state.pomodoro}
+                    shortBreak= {this.state.shortBreak}
+                    longBreak ={this.state.longBreak}
+                    pomoUp={() =>  this.props.setState((s) =>  { return {pomodoro: s.pomodoro + 1}})}
+                    pomoDown={() => this.props.setState((s) =>  { return {pomodoro: s.pomodoro - 1}})  }
+                    sbUp={() => this.props.setState((s) =>  { return {shortBreak: s.shortBreak + 1}})}
+                    sbDown={() => this.props.setState((s) =>  { return {shortBreak: s.shortBreak - 1}})}
+                    lbUp={() =>  this.props.setState((s) =>  { return {longBreak: s.longBreak + 1}})}
+                    lbDown={() => this.props.setState((s) =>  { return {longBreak: s.longBreak - 1}})}
+                    setPomodoro={(v) => this.setState({pomodoro:v})}
+                    setShortBreak={(v) => this.setState({shortBreak:v})}
+                    setLongBreak={(v) =>  this.setState({longBreak:v})}
                 />
             </div>
         )
