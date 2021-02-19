@@ -7,7 +7,7 @@ import check from '../../img/icon-check.svg';
 class Settings extends Component {
 
     pomoUp = () => {
-        this.pomoUp()    
+        this.props.pomoUp()    
     }
     pomoDown = () => {
        this.props.pomoDown()
