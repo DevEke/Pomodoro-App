@@ -6,24 +6,36 @@ import check from '../../img/icon-check.svg';
 
 class Settings extends Component {
 
+    state = {
+        pomodoro: this.props.pomodoro,
+        shortBreak: this.props.shortBreak,
+        longBreak: this.props.longBreak
+    }
+
     pomoUp = () => {
-        this.props.pomoUp()    
+        this.setState((s) =>  { return {pomodoro: s.pomodoro + 1} } )
     }
+
     pomoDown = () => {
-       this.props.pomoDown()
+        this.setState((s) =>  { return {pomodoro: s.pomodoro - 1} } )
+       
     }
+
     sbUp = () => {
-        this.props.sbUp();
+        this.setState((s) =>  { return {shortBreak: s.shortBreak + 1} } )
     }
+
     sbDown = () => {
-        this.props.sbDown()
-         }
-    lbUp = () => {
-        this.props.lbUp();    
+        this.setState((s) =>  { return {shortBreak: s.shortBreak - 1} } )
     }
+
+    lbUp = () => {
+        this.setState((s) =>  { return {longBreak: s.longBreak + 1} } )
+    }
+
     lbDown = () => {
-        this.props.lbDown();
-     }
+        this.setState((s) =>  { return {longBreak: s.longBreak - 1} } )
+    }
     
     setFontKumbh = () => {
         document.getElementById('kumbh-font').classList.add('selected');
@@ -78,7 +90,7 @@ class Settings extends Component {
                             <div className="form-set-time__container">
                                 <div className="form-input__container">
                                     <label className="form-input__label">pomodoro</label>
-                                    <input className="form-input__input" id="pomo-counter" type='number'  onChange={(e)=> this.props.setPomodoro(e.target.value)} value={this.props.pomodoro} defaultValue="25" min='1' max='99'/>
+                                    <input className="form-input__input" id="pomo-counter" type='number'  onChange={(e)=> this.setState({pomodoro: e.target.value})} value={this.state.pomodoro} defaultValue="25" min='1' max='99'/>
                                     <div className="form-input__custom-spinners">
                                         <img onClick={this.pomoUp} id="pomo-arrow-up" className="form-input__arrow" src={up} alt="up arrow"/>
                                         <img onClick={this.pomoDown}id="pomo-arrow-down" className="form-input__arrow" src={down} alt="down arrow"/>
@@ -86,7 +98,7 @@ class Settings extends Component {
                                 </div>
                                 <div className="form-input__container">
                                     <label className="form-input__label">short break</label>
-                                    <input className="form-input__input" id="sb-counter" type='number' onChange={(e)=> this.props.setShortBreak(e.target.value)} value={this.props.shortBreak} defaultValue="5" min='1' max='99'/>
+                                    <input className="form-input__input" id="sb-counter" type='number' onChange={(e)=> this.setState({shortBreak: e.target.value})} value={this.state.shortBreak} defaultValue="5" min='1' max='99'/>
                                     <div className="form-input__custom-spinners">
                                         <img onClick={this.sbUp} id="sb-arrow-up" className="form-input__arrow" src={up} alt="up arrow"/>
                                         <img onClick={this.sbDown} id="sb-arrow-down" className="form-input__arrow" src={down} alt="down arrow"/>
@@ -94,7 +106,7 @@ class Settings extends Component {
                                 </div>
                                 <div className="form-input__container">
                                     <label className="form-input__label">long break</label>
-                                    <input className="form-input__input" id="lb-counter" type='number' onChange={(e)=> this.props.setLongBreak(e.target.value)} value={this.props.longBreak} defaultValue="15" min='1' max='99'/>
+                                    <input className="form-input__input" id="lb-counter" type='number' onChange={(e)=> this.setState({longBreak: e.target.value})} value={this.state.longBreak} defaultValue="15" min='1' max='99'/>
                                     <div className="form-input__custom-spinners">
                                         <img onClick={this.lbUp} id="lb-arrow-up" className="form-input__arrow" src={up} alt="up arrow"/>
                                         <img onClick={this.lbDown} id="lb-arrow-down" className="form-input__arrow" src={down} alt="down arrow"/>
@@ -118,7 +130,7 @@ class Settings extends Component {
                                 <div className="form-radio__outline"> <div onClick={this.setColorPurple} id="purple-color" className="selection"><img id="purplecheck" src={check} alt="check icon"/></div></div>
                             </div>
                         </div>
-                        <button style={{background: color}} onClick={applySettings} id="apply">Apply</button>
+                        <button style={{background: color}} onClick={(e)=>applySettings(e,this.state.pomodoro,this.state.shortBreak,this.state.longBreak)} id="apply">Apply</button>
                     </form>
                 </div>
             </div>

@@ -28,7 +28,7 @@ class MainView extends Component {
         e.target.style.color = '#EFF1FA'
     }
 
-    applySettings = (e) => {
+    applySettings = (e,pom,short,long) => {
         e.preventDefault();
 
         //Setting up selected font
@@ -59,6 +59,7 @@ class MainView extends Component {
                 color: '#d881f8'
             })
         }
+        this.setState({pomodoro:pom, shortBreak: short,longBreak:long});
         document.querySelector('.settings__modal-container').style.display = 'none';
     }
 
@@ -118,15 +119,15 @@ class MainView extends Component {
                     pomodoro={this.state.pomodoro}
                     shortBreak= {this.state.shortBreak}
                     longBreak ={this.state.longBreak}
-                    pomoUp={() =>  this.props.setState((s) =>  { return {pomodoro: s.pomodoro + 1}})}
-                    pomoDown={() => this.props.setState((s) =>  { return {pomodoro: s.pomodoro - 1}})  }
-                    sbUp={() => this.props.setState((s) =>  { return {shortBreak: s.shortBreak + 1}})}
-                    sbDown={() => this.props.setState((s) =>  { return {shortBreak: s.shortBreak - 1}})}
-                    lbUp={() =>  this.props.setState((s) =>  { return {longBreak: s.longBreak + 1}})}
-                    lbDown={() => this.props.setState((s) =>  { return {longBreak: s.longBreak - 1}})}
-                    setPomodoro={(v) => this.setState({pomodoro:v})}
-                    setShortBreak={(v) => this.setState({shortBreak:v})}
-                    setLongBreak={(v) =>  this.setState({longBreak:v})}
+                    // pomoUp={() =>  this.props.setState((s) =>  { return {pomodoro: s.pomodoro + 1}})}
+                    // pomoDown={() => this.props.setState((s) =>  { return {pomodoro: s.pomodoro - 1}})  }
+                    // sbUp={() => this.props.setState((s) =>  { return {shortBreak: s.shortBreak + 1}})}
+                    // sbDown={() => this.props.setState((s) =>  { return {shortBreak: s.shortBreak - 1}})}
+                    // lbUp={() =>  this.props.setState((s) =>  { return {longBreak: s.longBreak + 1}})}
+                    // lbDown={() => this.props.setState((s) =>  { return {longBreak: s.longBreak - 1}})}
+                    // setPomodoro={(v) => this.setState({pomodoro:v})}
+                    // setShortBreak={(v) => this.setState({shortBreak:v})}
+                    // setLongBreak={(v) =>  this.setState({longBreak:v})}
                 />
             </div>
         )
